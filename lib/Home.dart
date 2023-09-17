@@ -244,7 +244,7 @@ class MobileHome extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(left: 25, right: 20),
+          padding: EdgeInsets.only(left: 15, right: 100),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -258,7 +258,7 @@ class MobileHome extends StatelessWidget {
                         TextSpan(
                           text: '\n Hi, I am',
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 20,
                             fontFamily: 'Regular',
                             color: Colors.white,
                           ),
@@ -266,20 +266,20 @@ class MobileHome extends StatelessWidget {
                         TextSpan(
                             text: ' Monu',
                             style: TextStyle(
-                                fontSize: 35,
+                                fontSize: 30,
                                 fontFamily: 'Bold',
                                 color: Color.fromARGB(255, 72, 5, 189))),
                         TextSpan(
                             text: '\n and I am a ',
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 20,
                               color: Colors.white,
                               fontFamily: 'Regular',
                             )),
                         TextSpan(
                             text: '\n passionate',
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 20,
                               color: Colors.white,
                               fontFamily: 'Regular',
                             )),
@@ -296,7 +296,7 @@ class MobileHome extends StatelessWidget {
                     child: SizedBox(
                       child: DefaultTextStyle(
                         style: TextStyle(
-                            fontSize: 35,
+                            fontSize: 30,
                             fontFamily: 'Bold',
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 72, 5, 189)),
@@ -321,8 +321,8 @@ class MobileHome extends StatelessWidget {
                     children: [
                       Padding(padding: EdgeInsets.only(left: 6)),
                       Container(
-                          height: 50,
-                          width: 80,
+                          height: 40,
+                          width: 70,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.black,
@@ -334,7 +334,7 @@ class MobileHome extends StatelessWidget {
                             child: Text(
                               'Git Hub',
                               style: TextStyle(
-                                  color: Colors.white, fontFamily: 'Regular'),
+                                  color: Colors.white, fontFamily: 'Regular',fontSize: 10,),
                             ),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
@@ -344,8 +344,8 @@ class MobileHome extends StatelessWidget {
                         width: 20,
                       ),
                       Container(
-                          height: 50,
-                          width: 80,
+                          height: 40,
+                          width: 70,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.black),
@@ -356,7 +356,7 @@ class MobileHome extends StatelessWidget {
                             child: Text(
                               'Linkedin',
                               style: TextStyle(
-                                  color: Colors.white, fontFamily: 'Regular'),
+                                  color: Colors.white, fontFamily: 'Regular', fontSize: 10),
                             ),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
@@ -370,8 +370,8 @@ class MobileHome extends StatelessWidget {
                 children: [
                   Image.asset(
                     'lib/assest/bg.png',
-                    height: 250,
-                    width: 200,
+                    height: 220,
+                    width: 180,
                   ),
                 ],
               ),

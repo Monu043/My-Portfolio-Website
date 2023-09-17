@@ -248,7 +248,7 @@ class MobileProject extends StatelessWidget {
         SizedBox(height: 30,),
               Row(crossAxisAlignment: CrossAxisAlignment.start,
               children: [Padding(padding: EdgeInsets.only(left: 20)),
-                Text('- Source Code of these projects are on Github\n\n-Portfolio App \n-Delivery App \n-ToDo App',
+                Text('- Source Code of these projects are on\n  Github\n\n-Portfolio App \n-Delivery App \n-ToDo App',
                            style: TextStyle(
                                fontSize: 20,
                                fontFamily: 'Regular',

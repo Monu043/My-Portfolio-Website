@@ -244,7 +244,7 @@ class MobileSkill extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: 60,
+                    width: 50,
                   ),
                   Column(
                     children: [
@@ -302,7 +302,7 @@ class MobileSkill extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: 60,
+                    width: 50,
                   ),
                   Column(
                     children: [
@@ -379,7 +379,7 @@ class MobileSkill extends StatelessWidget {
           children: [
             Padding(padding: EdgeInsets.only(left: 20)),
             Text(
-               '- I have a good knowledge of dart, flutter, firebase \n- I am learning aws.\n- I have done internships\n- Quick Learner\n- Easily adaptable to different working conditions\n- Team Work Spirit',
+               '- I have a good knowledge of dart,\n  flutter, firebase. \n- I am learning aws.\n- I have done internships.\n- Quick Learner.\n- Easily adaptable to different working\n  conditions.\n- Team Work Spirit.',
               style: TextStyle(
                   fontSize: 20, fontFamily: 'Regular', color: Colors.white),
             ),
