@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:websiteme/Contactme.dart';
 
 class Skills extends StatefulWidget {
   const Skills({super.key});
@@ -10,18 +11,16 @@ class Skills extends StatefulWidget {
 class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth > 1200) {
-        return DesktopSkill();
-      } else if (constraints.maxWidth > 800 && constraints.maxWidth < 1200) {
-        return DesktopSkill();
-      } else {
+    return LayoutBuilder(builder: (
+      BuildContext context,BoxConstraints constraints) {
+      if (constraints.maxWidth < 600) {
         return MobileSkill();
+      } else {
+        return DesktopSkill();
       }
     });
   }
 }
-
 class DesktopSkill extends StatelessWidget {
   const DesktopSkill({super.key});
 
@@ -244,7 +243,7 @@ class MobileSkill extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: 60,
+                    width: 40,
                   ),
                   Column(
                     children: [
@@ -302,7 +301,7 @@ class MobileSkill extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: 60,
+                    width: 40,
                   ),
                   Column(
                     children: [
@@ -353,7 +352,7 @@ class MobileSkill extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                          '- Android Studio \nI have a good\nknowledge of flutter',
+                          '- Android Studio \nI have a good\nknowledge of Android Studio',
                           style: TextStyle(
                               fontSize: 15,
                               fontFamily: 'Regular',
@@ -379,7 +378,7 @@ class MobileSkill extends StatelessWidget {
           children: [
             Padding(padding: EdgeInsets.only(left: 20)),
             Text(
-               '- I have a good knowledge of dart, flutter, firebase \n- I am learning aws.\n- I have done internships\n- Quick Learner\n- Easily adaptable to different working conditions\n- Team Work Spirit',
+               '- I have a good knowledge of dart, \nflutter, firebase \n- I am learning aws.\n- I have done internships\n- Quick Learner\n- Easily adaptable to different working \nconditions\n- Team Work Spirit',
               style: TextStyle(
                   fontSize: 20, fontFamily: 'Regular', color: Colors.white),
             ),

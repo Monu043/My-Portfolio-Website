@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:websiteme/Contactme.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -25,33 +26,20 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return  LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth > 1200) {
-        return DesktopHome();
-      } else if (constraints.maxWidth > 800 && constraints.maxWidth < 1200) {
-        return DesktopHome();
-      } else {
+       return LayoutBuilder(builder: (
+      BuildContext context,BoxConstraints constraints) {
+      if (constraints.maxWidth < 600) {
         return MobileHome();
+      } else {
+        return DesktopHome();
       }
     });
   }
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
+
 class DesktopHome extends StatelessWidget {
-   DesktopHome({super.key});
- final List<String> urls = [
+  DesktopHome({super.key});
+  final List<String> urls = [
     'https://www.linkedin.com/in/prajapatimonu04',
     'https://github.com/Monu043',
   ];
@@ -64,10 +52,9 @@ class DesktopHome extends StatelessWidget {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
         Container(
           margin: EdgeInsets.only(top: 100),
@@ -220,14 +207,9 @@ class DesktopHome extends StatelessWidget {
   }
 }
 
-
-
-
-
-
 class MobileHome extends StatelessWidget {
-   MobileHome({super.key});
- final List<String> urls = [
+  MobileHome({super.key});
+  final List<String> urls = [
     'https://www.linkedin.com/in/prajapatimonu04',
     'https://github.com/Monu043',
   ];
@@ -239,6 +221,7 @@ class MobileHome extends StatelessWidget {
       throw 'Could not launch $url';
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -258,7 +241,7 @@ class MobileHome extends StatelessWidget {
                         TextSpan(
                           text: '\n Hi, I am',
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 20,
                             fontFamily: 'Regular',
                             color: Colors.white,
                           ),
@@ -266,20 +249,20 @@ class MobileHome extends StatelessWidget {
                         TextSpan(
                             text: ' Monu',
                             style: TextStyle(
-                                fontSize: 35,
+                                fontSize: 25,
                                 fontFamily: 'Bold',
                                 color: Color.fromARGB(255, 72, 5, 189))),
                         TextSpan(
                             text: '\n and I am a ',
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 20,
                               color: Colors.white,
                               fontFamily: 'Regular',
                             )),
                         TextSpan(
                             text: '\n passionate',
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 20,
                               color: Colors.white,
                               fontFamily: 'Regular',
                             )),
@@ -296,7 +279,7 @@ class MobileHome extends StatelessWidget {
                     child: SizedBox(
                       child: DefaultTextStyle(
                         style: TextStyle(
-                            fontSize: 35,
+                            fontSize: 25,
                             fontFamily: 'Bold',
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 72, 5, 189)),
@@ -315,7 +298,7 @@ class MobileHome extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Row(
                     children: [
@@ -334,7 +317,7 @@ class MobileHome extends StatelessWidget {
                             child: Text(
                               'Git Hub',
                               style: TextStyle(
-                                  color: Colors.white, fontFamily: 'Regular'),
+                                  color: Colors.white, fontFamily: 'Regular',fontSize: 13),
                             ),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
@@ -356,7 +339,7 @@ class MobileHome extends StatelessWidget {
                             child: Text(
                               'Linkedin',
                               style: TextStyle(
-                                  color: Colors.white, fontFamily: 'Regular'),
+                                  color: Colors.white, fontFamily: 'Regular', fontSize: 13),
                             ),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
@@ -365,21 +348,20 @@ class MobileHome extends StatelessWidget {
                     ],
                   ),
                 ],
-              ),Spacer(),
-               Column(
+              ),
+              
+              Column(
                 children: [
                   Image.asset(
                     'lib/assest/bg.png',
-                    height: 250,
-                    width: 200,
+                    height: 150,
+                    width: 150,
                   ),
                 ],
               ),
-             ],
+            ],
           ),
         ),
-
-
         SizedBox(
           height: 40,
         ),

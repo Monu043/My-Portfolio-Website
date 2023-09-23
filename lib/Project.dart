@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:websiteme/Contactme.dart';
 
 class Project extends StatefulWidget {
   const Project({super.key});
@@ -10,18 +11,16 @@ class Project extends StatefulWidget {
 class _ProjectState extends State<Project> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth > 1200) {
-        return DesktopProject();
-      } else if (constraints.maxWidth > 800 && constraints.maxWidth < 1200) {
-        return DesktopProject();
-      } else {
+     return LayoutBuilder(builder: (
+      BuildContext context,BoxConstraints constraints) {
+      if (constraints.maxWidth < 600) {
         return MobileProject();
+      } else {
+        return DesktopProject();
       }
     });
   }
 }
-
 class DesktopProject extends StatelessWidget {
   const DesktopProject({super.key});
 
@@ -248,7 +247,7 @@ class MobileProject extends StatelessWidget {
         SizedBox(height: 30,),
               Row(crossAxisAlignment: CrossAxisAlignment.start,
               children: [Padding(padding: EdgeInsets.only(left: 20)),
-                Text('- Source Code of these projects are on Github\n\n-Portfolio App \n-Delivery App \n-ToDo App',
+                Text('- Source Code of these projects are \n on Github\n\n-Portfolio App \n-Delivery App \n-ToDo App',
                            style: TextStyle(
                                fontSize: 20,
                                fontFamily: 'Regular',

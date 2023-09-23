@@ -11,13 +11,12 @@ class Contactme extends StatefulWidget {
 class _ContactmeState extends State<Contactme> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth > 1200) {
-        return DesktopContactus();
-      } else if (constraints.maxWidth > 800 && constraints.maxWidth < 1200) {
-        return DesktopContactus();
-      } else {
+    return LayoutBuilder(builder: (
+      BuildContext context,BoxConstraints constraints) {
+      if (constraints.maxWidth < 600) {
         return MobileContactus();
+      } else {
+        return DesktopContactus();
       }
     });
   }
@@ -87,7 +86,7 @@ class MobileContactus extends StatelessWidget {
         SizedBox(height: 20,),
         Container(
           height: 500,
-          width: 800,
+          width: double.infinity,
           child: ContactUs(
             companyName: 'You can contact me here',
             companyFontSize: 20,
