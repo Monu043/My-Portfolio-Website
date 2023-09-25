@@ -13,11 +13,13 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (
       BuildContext context,BoxConstraints constraints) {
-      if (constraints.maxWidth < 600) {
+        if (constraints.maxWidth < 600) {
         return MobileAbout();
-      } else {
+      } else if (constraints.maxWidth > 1000) {
         return DesktopAbout();
-      }
+      } else {
+        return TabletAbout();
+      } 
     });
   }
 }
@@ -187,6 +189,97 @@ class MobileAbout extends StatelessWidget {
           thickness: 1,
           indent: 20,
           endIndent: 20,
+        ),
+      ],
+    );
+  }
+}
+
+class TabletAbout extends StatefulWidget {
+  const TabletAbout({super.key});
+
+  @override
+  State<TabletAbout> createState() => _TabletHomeState();
+}
+
+class _TabletHomeState extends State<TabletAbout> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 100),
+                child: Row(
+                  children: [
+                    Text(
+                      'About me',
+                      style: TextStyle(
+                          fontSize: 40,
+                          fontFamily: 'Bold',
+                          color: Colors.white),
+                    )
+                  ],
+                ),
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 400,
+                    width: 400,
+                    child: Image.asset('lib/assest/bd.png'),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                            text:
+                                'Hi, My Name is Monu and i am a App Developer.',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontFamily: 'Regular',
+                                color: Colors.white)),
+                        TextSpan(
+                            text:
+                                '\nI am pursuring My B.Tech from Government Engineering College, Nilokheri Karnal ',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontFamily: 'Regular',
+                                color: Colors.white)),
+                                TextSpan(
+                      text:
+                          '\n-I completed my XII from ',
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: 'Regular',
+                          color: Colors.white)),
+                            TextSpan(
+                      text:
+                          'Government Model Sanskriti Sr. Sec. School, G.T Road Panipat ',
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: 'Regular',
+                          color: Colors.white)),
+                      
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 160,
+        ),
+        Divider(
+          color: Colors.deepPurple,
+          thickness: 1,
+          indent: 100,
+          endIndent: 100,
         ),
       ],
     );

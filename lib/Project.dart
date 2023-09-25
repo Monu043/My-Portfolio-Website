@@ -13,11 +13,13 @@ class _ProjectState extends State<Project> {
   Widget build(BuildContext context) {
      return LayoutBuilder(builder: (
       BuildContext context,BoxConstraints constraints) {
-      if (constraints.maxWidth < 600) {
+     if (constraints.maxWidth < 600) {
         return MobileProject();
-      } else {
+      } else if (constraints.maxWidth > 1000) {
         return DesktopProject();
-      }
+      } else {
+        return TabletProject();
+      } 
     });
   }
 }
@@ -264,5 +266,113 @@ class MobileProject extends StatelessWidget {
                 ),
       
    ] );
+  }
+}
+
+
+class TabletProject extends StatelessWidget {
+  const TabletProject({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return     Column(
+      children: [Container(
+                  padding: EdgeInsets.only(left: 100),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Project',
+                        style: TextStyle(
+                            fontSize: 40,
+                            fontFamily: 'Bold',
+                            color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              SizedBox(height: 50,),
+               Container(height: 250, width: double.infinity,
+                 child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Padding(
+                         padding: EdgeInsets.only(
+                       left: 10,
+                     )),
+                 Container(height: 200, width: 300,
+                   child: Column(
+                     children: [
+                       Image.asset('lib/assest/port.jpeg'),
+                    SizedBox(height: 10,),
+                       Text(
+                           '- Portfolio App',
+                           style: TextStyle(
+                               fontSize: 20,
+                               fontFamily: 'Regular',
+                               color: Colors.white))
+                     ],
+                   ),
+                 ),
+                 SizedBox(
+                   width: 10,
+                 ),
+                 Container(height: 200, width: 300,
+                   child: Column(
+                     children: [
+                     
+                       Image.asset('lib/assest/del.jpeg'),
+                       SizedBox(
+                         height: 10,
+                       ),
+                       Text('- Delivery App',
+                           style: TextStyle(
+                               fontSize: 20,
+                               fontFamily: 'Regular',
+                               color: Colors.white))
+                     ],
+                   ),
+                 ),
+                 SizedBox(
+                   width: 10,
+                 ),
+                 Container(height: 200, width: 300,
+                   child: Column(
+                     children: [
+
+                       Image.asset('lib/assest/todo.jpeg'),
+                       SizedBox(
+                         height: 10,
+                       ),
+                       Text(
+                           '- ToDo App',
+                           style: TextStyle(
+                               fontSize: 20,
+                               fontFamily: 'Regular',
+                               color: Colors.white))
+                     ],
+                   ),
+                 ),
+                                  ],
+                 ),
+               ),
+             Row(crossAxisAlignment: CrossAxisAlignment.start,
+              children: [Padding(padding: EdgeInsets.only(left: 10)),
+                Text('- Source Code of these projects are on Github\n\n-Portfolio App \n-Delivery App \n-ToDo App',
+                           style: TextStyle(
+                               fontSize: 20,
+                               fontFamily: 'Regular',
+                               color: Colors.white)),
+                               
+              ],
+             ),
+
+                SizedBox(height: 150,),
+      Divider(
+                  color: Colors.deepPurple,
+                  thickness: 1,
+                  indent: 100,
+                  endIndent: 100,
+                ),
+      ],
+    );
   }
 }

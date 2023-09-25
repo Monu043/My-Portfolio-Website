@@ -13,11 +13,13 @@ class _SkillsState extends State<Skills> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (
       BuildContext context,BoxConstraints constraints) {
-      if (constraints.maxWidth < 600) {
+        if (constraints.maxWidth < 600) {
         return MobileSkill();
-      } else {
+      } else if (constraints.maxWidth > 1000) {
         return DesktopSkill();
-      }
+      } else {
+        return TabletSkill();
+      } 
     });
   }
 }
@@ -392,6 +394,179 @@ class MobileSkill extends StatelessWidget {
           thickness: 1,
           indent: 20,
           endIndent: 20,
+        ),
+      ],
+    );
+  }
+}
+
+
+class TabletSkill extends StatelessWidget {
+  const TabletSkill({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.only(left: 100),
+          child: Row(
+            children: [
+              Text(
+                'Skills',
+                style: TextStyle(
+                    fontSize: 40, fontFamily: 'Bold', color: Colors.white),
+              )
+            ],
+          ),
+        ),
+        Container(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 400,
+                child: Row(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.only(
+                      left: 10,
+                    )),
+                    Column(
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(
+                          top: 50,
+                        )),
+                        Image.asset('lib/assest/flutter.png'),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                            '- flutter \n\nI have a good\nknowledge of flutter',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Regular',
+                                color: Colors.white))
+                      ],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(
+                          top: 50,
+                        )),
+                        Image.asset('lib/assest/dart.png'),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text('- Dart \n\nI have a good\nknowledge of Dart',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Regular',
+                                color: Colors.white))
+                      ],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(
+                          top: 50,
+                        )),
+                        Image.asset('lib/assest/firebase.png'),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                            '- firebase \n\nI have a good\nknowledge of Firebase',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Regular',
+                                color: Colors.white))
+                      ],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(
+                          top: 50,
+                        )),
+                        Image.asset('lib/assest/amazon.png'),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text('- AWS \n\nI have a good\nknowledge of AWS',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Regular',
+                                color: Colors.white)),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(
+                          top: 50,
+                        )),
+                        Image.asset('lib/assest/android.png'),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                            '- Android Studio \n\nI have a good\nknowledge of Android Studio',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Regular',
+                                color: Colors.white)),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 50),
+        Row(
+          children: [ Padding(padding: EdgeInsets.only(left: 10)),
+                Text('Professional Skills :-',      
+            style: TextStyle(
+                  fontSize: 30, fontFamily: 'Regular', color: Colors.white),
+           ),
+          ],
+        ),
+        SizedBox(height: 20,),
+        Row(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(padding: EdgeInsets.only(left: 10)),
+            
+            Text(
+              '- I have a good knowledge of dart, flutter, firebase and i am learning aws.\n- I have done internships\n- Quick Learner\n- Easily adaptable to different working conditions\n- Team Work Spirit',
+              style: TextStyle(
+                  fontSize: 20, fontFamily: 'Regular', color: Colors.white),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 100,
+        ),
+        Divider(
+          color: Colors.deepPurple,
+          thickness: 1,
+          indent: 100,
+          endIndent: 100,
         ),
       ],
     );

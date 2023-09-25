@@ -26,13 +26,15 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-       return LayoutBuilder(builder: (
-      BuildContext context,BoxConstraints constraints) {
-      if (constraints.maxWidth < 600) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+     if (constraints.maxWidth < 600) {
         return MobileHome();
-      } else {
+      } else if (constraints.maxWidth > 1000) {
         return DesktopHome();
-      }
+      } else {
+        return TabletHome();
+      } 
     });
   }
 }
@@ -317,7 +319,9 @@ class MobileHome extends StatelessWidget {
                             child: Text(
                               'Git Hub',
                               style: TextStyle(
-                                  color: Colors.white, fontFamily: 'Regular',fontSize: 13),
+                                  color: Colors.white,
+                                  fontFamily: 'Regular',
+                                  fontSize: 13),
                             ),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
@@ -339,7 +343,9 @@ class MobileHome extends StatelessWidget {
                             child: Text(
                               'Linkedin',
                               style: TextStyle(
-                                  color: Colors.white, fontFamily: 'Regular', fontSize: 13),
+                                  color: Colors.white,
+                                  fontFamily: 'Regular',
+                                  fontSize: 13),
                             ),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
@@ -349,12 +355,11 @@ class MobileHome extends StatelessWidget {
                   ),
                 ],
               ),
-              
               Column(
                 children: [
                   Image.asset(
                     'lib/assest/bg.png',
-                    height: 150,
+                    height: 250,
                     width: 150,
                   ),
                 ],
@@ -370,6 +375,177 @@ class MobileHome extends StatelessWidget {
           thickness: 1,
           indent: 20,
           endIndent: 20,
+        ),
+      ],
+    );
+  }
+}
+
+
+class TabletHome extends StatelessWidget {
+  TabletHome({super.key});
+  final List<String> urls = [
+    'https://www.linkedin.com/in/prajapatimonu04',
+    'https://github.com/Monu043',
+  ];
+
+  Future<void> _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 100),
+          padding: EdgeInsets.only(left: 100, right: 10),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 40),
+                    padding: EdgeInsets.only(left: 0),
+                    child: RichText(
+                      text: TextSpan(children: <TextSpan>[
+                        TextSpan(
+                          text: '\n Hi, I am',
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontFamily: 'Regular',
+                            color: Colors.white,
+                          ),
+                        ),
+                        TextSpan(
+                            text: ' Monu',
+                            style: TextStyle(
+                                fontSize: 40,
+                                fontFamily: 'Bold',
+                                color: Color.fromARGB(255, 72, 5, 189))),
+                        TextSpan(
+                            text: '\n and I am a ',
+                            style: TextStyle(
+                              fontSize: 40,
+                              color: Colors.white,
+                              fontFamily: 'Regular',
+                            )),
+                        TextSpan(
+                            text: '\n passionate',
+                            style: TextStyle(
+                              fontSize: 40,
+                              color: Colors.white,
+                              fontFamily: 'Regular',
+                            )),
+                      ]),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: 30,
+                    ),
+                    child: SizedBox(
+                      child: DefaultTextStyle(
+                        style: TextStyle(
+                            fontSize: 40,
+                            fontFamily: 'Bold',
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 72, 5, 189)),
+                        child: AnimatedTextKit(
+                          animatedTexts: [
+                            WavyAnimatedText(
+                              'App Developer',
+                            ),
+                            WavyAnimatedText(
+                              'Web Developer',
+                            ),
+                            //  TypewriterAnimatedText('Flutter Developer',speed: Duration(milliseconds: 100))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Padding(padding: EdgeInsets.only(left: 30)),
+                      Container(
+                          height: 50,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.black,
+                          ),
+                          child: ElevatedButton(
+                            onPressed: () => _launchURL(
+                              'https://github.com/Monu043',
+                            ),
+                            child: Text(
+                              'Git Hub',
+                              style: TextStyle(
+                                  color: Colors.white, fontFamily: 'Regular'),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromARGB(255, 72, 5, 189)),
+                          )),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          height: 50,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.black),
+                          child: ElevatedButton(
+                            onPressed: () => _launchURL(
+                              'https://www.linkedin.com/in/prajapatimonu04',
+                            ),
+                            child: Text(
+                              'Linkedin',
+                              style: TextStyle(
+                                  color: Colors.white, fontFamily: 'Regular'),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromARGB(255, 72, 5, 189)),
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+              Spacer(),
+              Column(
+                children: [
+                  Image.asset(
+                    'lib/assest/bg.png',
+                    height: 400,
+                    width: 500,
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 120,
+        ),
+        Divider(
+          color: Colors.deepPurple,
+          thickness: 1,
+          indent: 100,
+          endIndent: 100,
         ),
       ],
     );

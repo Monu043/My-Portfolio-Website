@@ -13,11 +13,13 @@ class _ContactmeState extends State<Contactme> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (
       BuildContext context,BoxConstraints constraints) {
-      if (constraints.maxWidth < 600) {
+        if (constraints.maxWidth < 600) {
         return MobileContactus();
-      } else {
+      } else if (constraints.maxWidth > 1000) {
         return DesktopContactus();
-      }
+      } else {
+        return TabletContactus();
+      } 
     });
   }
 }
@@ -90,6 +92,49 @@ class MobileContactus extends StatelessWidget {
           child: ContactUs(
             companyName: 'You can contact me here',
             companyFontSize: 20,
+            websiteText: 'Contact here',
+            emailText: 'Email Me',
+            companyFont: 'Regular',
+            textColor: Colors.white,
+            cardColor: Color.fromARGB(255, 72, 5, 189),
+            companyColor: Colors.white,
+            taglineColor: Colors.white,
+            email: 'parjapatimonu1043@gmail.com',
+            linkedinURL: 'https://www.linkedin.com/in/prajapatimonu04',
+            githubUserName: 'https://github.com/Monu043',
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+
+class TabletContactus extends StatelessWidget {
+  const TabletContactus({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          child: Row(
+            children: [
+              Padding(padding: EdgeInsets.only(left: 100)),
+              Text(
+                'Contact me',
+                style: TextStyle(
+                    fontSize: 40, fontFamily: 'Bold', color: Colors.white),
+              )
+            ],
+          ),
+        ),
+        Container(
+          height: 500,
+          width: 800,
+          child: ContactUs(
+            companyName: 'You can contact me here',
+            companyFontSize: 30,
             websiteText: 'Contact here',
             emailText: 'Email Me',
             companyFont: 'Regular',
