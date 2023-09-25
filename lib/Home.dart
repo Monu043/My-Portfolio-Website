@@ -28,13 +28,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-     if (constraints.maxWidth < 600) {
+      if (constraints.maxWidth < 600) {
         return MobileHome();
       } else if (constraints.maxWidth > 1000) {
         return DesktopHome();
       } else {
         return TabletHome();
-      } 
+      }
     });
   }
 }
@@ -380,7 +380,6 @@ class MobileHome extends StatelessWidget {
     );
   }
 }
-
 
 class TabletHome extends StatelessWidget {
   TabletHome({super.key});
